@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Arcade - Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+   <img src = "imagenes\logo-arcadeL.png" class = "logo">
+  <a href="index.html" class="volver-btn">🏠 Volver a juegos</a>
+</header>
+
+<main>
+  <div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <form id="form-login">
+      <!-- Nombre de usuario -->
+      <input type="text" id="nombre" placeholder="Nombre de usuario" required><br><br>
+
+      <!-- Contraseña -->
+      <input type="password" id="password" placeholder="Contraseña" required><br><br>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Botón para registrar nuevos usuarios -->
+    <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+
+    <!-- Mensaje de error -->
+    <div id="mensaje-error" style="color:red; margin-top:10px;"></div>
+  </div>
+</main>
+
+<script src="login.js"></script>
+</body>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-contenido">
+
+    <p>🎮 Arcade Plataforma</p>
+
+    <p>
+      Proyecto web desarrollado con Node.js, Express y MySQL
+    </p>
+
+    <p class="footer-links">
+      <a href="index.html">Inicio</a> |
+      <a href="cuenta.html">Mi cuenta</a>
+    </p>
+
+    <p class="footer-copy">
+      © 2026 Arcade -Plataforma web de gestion y ranking de juegos Arcade
+    </p>
+</html>

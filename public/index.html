@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>🎮 Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+
+    <img src = "imagenes\logo-arcadeL.png" class = "logo">
+
+    <!-- Buscador -->
+    <input type="text" id="buscador" placeholder="Buscar juego...">
+
+    <!-- Botón Mi cuenta -->
+    <a href="login.html" id="btn-cuenta" class="cuenta-btn">👤 Mi cuenta</a>
+  <span id="admin-btn-container"></span> <!-- Aquí aparecerá el botón admin -->
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+    <h2>Juegos disponibles</h2>
+
+    <!-- Contenedor donde se insertan las cards -->
+    <div id="juegos-container" class="juegos-grid"></div>
+  </main>
+
+
+
+  <script src="index.js"></script>
+</body>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-contenido">
+
+    <p>🎮 Arcade Plataforma</p>
+
+    <p>
+      Proyecto web desarrollado con Node.js, Express y MySQL
+    </p>
+
+    <p class="footer-links">
+      <a href="index.html">Inicio</a> |
+      <a href="cuenta.html">Mi cuenta</a>
+    </p>
+
+    <p class="footer-copy">
+      © 2026 Arcade -Plataforma web de gestion y ranking de juegos Arcade
+    </p>
+
+  </div>
+
+</footer>
+</html>

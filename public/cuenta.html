@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Mi Cuenta - Arcade</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+<img src = "imagenes\logo-arcadeL.png" class = "logo">
+
+<a href="index.html">🏠 Volver a juegos</a>
+
+</header>
+
+
+<main>
+
+<h2>Mi cuenta</h2>
+
+<div id="datos-usuario">
+
+<p><strong>Usuario:</strong> <span id="usuario"></span></p>
+<p><strong>Email:</strong> <span id="email"></span></p>
+
+<button id="logout">Cerrar sesión</button>
+
+</div>
+
+
+<h3>🏆 Mis mejores puntuaciones</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Juego</th>
+<th>Puntuación</th>
+</tr>
+</thead>
+
+<tbody id="tabla-puntuaciones">
+</tbody>
+
+</table>
+
+</main>
+
+<script src="cuenta.js"></script>
+
+</body>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-contenido">
+
+    <p>🎮 Arcade Plataforma</p>
+
+    <p>
+      Proyecto web desarrollado con Node.js, Express y MySQL
+    </p>
+
+    <p class="footer-links">
+      <a href="index.html">Inicio</a> |
+      <a href="cuenta.html">Mi cuenta</a>
+    </p>
+
+    <p class="footer-copy">
+      © 2026 Arcade -Plataforma web de gestion y ranking de juegos Arcade
+    </p>
+</html>
