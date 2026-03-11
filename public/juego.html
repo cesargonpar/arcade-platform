@@ -7,13 +7,14 @@
 </head>
 <body>
 
-<header>
-  <img src = "imagenes\logo-arcadeL.png" class = "logo">
+<header class="header">
+  <img src="imagenes/logo-arcadeL.png" class="logo">
   <div id="usuario-info"></div>
+  <!-- Botón volver al inicio -->
+  <a href="index.html" class="btn-volver">🏠 Inicio</a>
 </header>
 
 <main>
-
   <!-- Nombre del juego -->
   <h2 id="nombre-juego"></h2>
 
@@ -30,29 +31,27 @@
     <button type="submit">Guardar puntuación</button>
   </form>
 
-  <p id="mensaje-login" style="color:red;"></p>
-
+  <!-- Mensaje si no hay sesión -->
+  <div id="mensaje-login" style="color:red;">
+  Debes <a href="login.html">iniciar sesión</a> para añadir puntuaciones
+</div>
 </main>
 
 <script src="juego.js"></script>
-</body>
+
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
-
   <div class="footer-contenido">
-
     <p>🎮 Arcade Plataforma</p>
-
-    <p>
-      Proyecto web desarrollado con Node.js, Express y MySQL
-    </p>
-
+    <p>Proyecto web desarrollado con Node.js, Express y MySQL</p>
     <p class="footer-links">
       <a href="index.html">Inicio</a> |
       <a href="cuenta.html">Mi cuenta</a>
     </p>
-
     <p class="footer-copy">
-      © 2026 Arcade -Plataforma web de gestion y ranking de juegos Arcade
+      © 2026 Arcade - Plataforma web de gestión y ranking de juegos Arcade
     </p>
+  </div>
+</footer>
+</body>
 </html>
