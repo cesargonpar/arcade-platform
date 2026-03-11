@@ -11,39 +11,35 @@
 
 <!-- ================= HEADER ================= -->
 <header class="header">
-
-<img src="imagenes/logo-arcadeL.png" class="logo">
-
-<input type="text" placeholder="Buscar juego...">
-
-<a href="cuenta.html" id="btn-cuenta" class="cuenta-btn">👤 Mi cuenta</a>
-
+  <img src="imagenes/logo-arcadeL.png" class="logo">
+  <input type="text" placeholder="Buscar juego..." id="buscadorAdmin">
+  <a href="cuenta.html" id="btn-cuenta" class="cuenta-btn">👤 Mi cuenta</a>
 </header>
 
 <!-- ================= MAIN ================= -->
 <main>
 
-<h2>Panel Admin - Crear Juego</h2>
+<h2>Panel Admin - Crear / Gestionar Juegos</h2>
 
 <div class="admin-panel">
 
-<form id="formJuego">
+  <!-- FORMULARIO CREAR JUEGO -->
+  <form id="formJuego">
+    <input type="hidden" id="juegoId">
+    <input type="text" id="nombre" placeholder="Nombre del juego" required>
+    <input type="text" id="genero" placeholder="Género">
+    <input type="number" id="anio" placeholder="Año">
+    <textarea id="descripcion" placeholder="Descripción"></textarea>
+    <input type="text" id="imagen" placeholder="URL de la imagen">
+    <button type="submit" id="btnCrear">Crear Juego</button>
+    <button type="button" id="btnCancelar" style="display:none;">Cancelar Edición</button>
+  </form>
 
-<input type="text" id="nombre" placeholder="Nombre del juego" required>
+  <p id="mensaje"></p>
 
-<input type="text" id="genero" placeholder="Género">
-
-<input type="number" id="anio" placeholder="Año">
-
-<textarea id="descripcion" placeholder="Descripción"></textarea>
-
-<input type="text" id="imagen" placeholder="URL de la imagen">
-
-<button type="submit">Crear Juego</button>
-
-</form>
-
-<p id="mensaje"></p>
+  <!-- LISTA DE JUEGOS EXISTENTES -->
+  <h3>Juegos existentes</h3>
+  <div id="listaJuegosAdmin" class="juegos-grid"></div>
 
 </div>
 
@@ -51,24 +47,19 @@
 
 <script src="admin.js"></script>
 
-</body>
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
-
   <div class="footer-contenido">
-
     <p>🎮 Arcade Plataforma</p>
-
-    <p>
-      Proyecto web desarrollado con Node.js, Express y MySQL
-    </p>
-
+    <p>Proyecto web desarrollado con Node.js, Express y MySQL</p>
     <p class="footer-links">
       <a href="index.html">Inicio</a> |
       <a href="cuenta.html">Mi cuenta</a>
     </p>
-
     <p class="footer-copy">
-      © 2026 Arcade -Plataforma web de gestion y ranking de juegos Arcade
+      © 2026 Arcade - Plataforma web de gestión y ranking de juegos Arcade
     </p>
+  </div>
+</footer>
+</body>
 </html>
