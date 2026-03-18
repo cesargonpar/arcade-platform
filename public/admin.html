@@ -23,19 +23,50 @@
 
 <div class="admin-panel">
 
-  <!-- FORMULARIO CREAR JUEGO -->
-  <form id="formJuego">
+ <!-- ================= FORMULARIO CREAR / EDITAR JUEGO ================= -->
+<div class="admin-form-container">
+
+  <h3 id="titulo-form">➕ Crear nuevo juego</h3>
+
+  <form id="formJuego" class="admin-form">
+
+    <!-- ID oculto (para edición) -->
     <input type="hidden" id="juegoId">
-    <input type="text" id="nombre" placeholder="Nombre del juego" required>
-    <input type="text" id="genero" placeholder="Género">
-    <input type="number" id="anio" placeholder="Año">
-    <textarea id="descripcion" placeholder="Descripción"></textarea>
-    <input type="text" id="imagen" placeholder="URL de la imagen">
-    <button type="submit" id="btnCrear">Crear Juego</button>
-    <button type="button" id="btnCancelar" style="display:none;">Cancelar Edición</button>
+
+    <!-- Nombre -->
+    <label for="nombre">Nombre del juego</label>
+    <input type="text" id="nombre" placeholder="Ej: Pac-Man" required>
+
+    <!-- Género -->
+    <label for="genero">Género</label>
+    <input type="text" id="genero" placeholder="Ej: Arcade, Acción">
+
+    <!-- Año -->
+    <label for="anio">Año</label>
+    <input type="number" id="anio" placeholder="Ej: 1980">
+
+    <!-- Descripción -->
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" placeholder="Describe el juego..."></textarea>
+
+    <!-- Imagen -->
+    <label for="imagen">URL de la imagen</label>
+    <input type="text" id="imagen" placeholder="imagenes/pacman.jpg...">
+
+    <!-- Botones -->
+    <div class="admin-botones">
+      <button type="submit" id="btnCrear">Crear Juego</button>
+      <button type="button" id="btnCancelar" style="display:none;">
+        Cancelar
+      </button>
+    </div>
+
   </form>
 
-  <p id="mensaje"></p>
+  <!-- Mensaje de estado -->
+  <p id="mensaje" class="mensaje-admin"></p>
+
+</div>
 
   <!-- LISTA DE JUEGOS EXISTENTES -->
   <h3>Juegos existentes</h3>

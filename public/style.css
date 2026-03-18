@@ -132,6 +132,67 @@ main {
 .card-juego button:hover {
   background-color: #45a049;
 }
+/* ================= PANEL ADMIN CREAR JUEGOS ================= */
+.admin-form-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  color: white;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-form label {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.admin-form input,
+.admin-form textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+.admin-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.admin-botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.admin-botones button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btnCrear {
+  background-color: #28a745;
+  color: white;
+}
+
+#btnCancelar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.mensaje-admin {
+  margin-top: 15px;
+  text-align: center;
+}
 
 /* ================= FOOTER ================= */
 
