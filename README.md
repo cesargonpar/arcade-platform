@@ -69,16 +69,21 @@ aRCADE
 ├── app.js
 ├── db.js
 ├── package.json
-│
+├── package-lock.json
+├── README.md
 └── public
 ├── index.html
 ├── juego.html
 ├── admin.html
 ├── cuenta.html
+├── login.html
+├── register.html
 ├── style.css
 ├── index.js
 ├── juego.js
 ├── admin.js
+├── login.js
+├── register.js
 └── imagenes
 
 ---
