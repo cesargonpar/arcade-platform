@@ -121,7 +121,7 @@ async function cargarJuegos() {
         <img src="${juego.imagen}" alt="${juego.nombre}" class="juego-imagen">
         <h3>${juego.nombre}</h3>
          <p>${juego.anio || ""}</p>
-        <p>${juego.descripcion || ""}</p>
+        <p>${juego.genero || ""}</p>
         <a href="juego.html?id=${juego.id}">
           <button>Top</button>
         </a>

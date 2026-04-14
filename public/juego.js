@@ -83,6 +83,8 @@ async function cargarJuego() {
     }
 
     nombreJuegoEl.textContent = juego.nombre;
+    const descripcionEl = document.getElementById("descripcion-juego");
+    descripcionEl.textContent = juego.descripcion;
 
     // Cargar Top 10
     const resTop = await fetch(`/puntuaciones/top/${juegoId}`);
