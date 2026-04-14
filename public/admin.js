@@ -1,20 +1,27 @@
 // --------------------------
-// Admin.js - Crear / Editar / Eliminar juegos
+// Admin.js - Panel de gestión de juegos
+// Crear / Editar / Eliminar / Buscar
 // --------------------------
+
+
+// ==========================
+// ELEMENTOS DEL DOM
+// ==========================
 const formJuego = document.getElementById("formJuego");
 const mensaje = document.getElementById("mensaje");
 const listaJuegosAdmin = document.getElementById("listaJuegosAdmin");
 const buscadorAdmin = document.getElementById("buscadorAdmin");
 const btnCancelar = document.getElementById("btnCancelar");
-let editando = false;
 
-// --------------------------
-// Cargar juegos
-// --------------------------
+
+// ==========================
+// CARGAR JUEGOS
+// ==========================
 async function cargarJuegosAdmin() {
   try {
     const res = await fetch("/juegos");
     const juegos = await res.json();
+
     listaJuegosAdmin.innerHTML = "";
 
     juegos.forEach(juego => {
@@ -23,11 +30,14 @@ async function cargarJuegosAdmin() {
 
       card.innerHTML = `
         <img src="${juego.imagen}" alt="${juego.nombre}" class="juego-imagen">
+
         <h3>${juego.nombre}</h3>
-        <p>${juego.genero || ""} | ${juego.anio || ""}</p>
+
+        <p>${juego.genero || ""}</p>
         <p>${juego.descripcion || ""}</p>
-        <button onclick="editarJuego(${juego.id})">Editar</button>
-        <button onclick="eliminarJuego(${juego.id})">Eliminar</button>
+
+        <button onclick="editarJuego(${juego.id})">✏️ Editar</button>
+        <button onclick="eliminarJuego(${juego.id})">🗑 Eliminar</button>
       `;
 
       listaJuegosAdmin.appendChild(card);
@@ -35,64 +45,84 @@ async function cargarJuegosAdmin() {
 
   } catch (error) {
     console.error("Error cargando juegos:", error);
+    mensaje.textContent = "Error al cargar juegos";
   }
 }
 
-// --------------------------
-// Crear o actualizar juego
-// --------------------------
+
+// ==========================
+// CREAR / ACTUALIZAR JUEGO
+// ==========================
 formJuego.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // ID oculto (si existe → edición)
   const id = document.getElementById("juegoId").value;
-  const nombre = document.getElementById("nombre").value;
-  const genero = document.getElementById("genero").value;
-  const anio = document.getElementById("anio").value;
-  const descripcion = document.getElementById("descripcion").value;
-  const imagen = document.getElementById("imagen").value;
 
-  const juegoData = { nombre, genero, anio, descripcion, imagen };
+  // Datos del formulario
+  const juegoData = {
+    nombre: document.getElementById("nombre").value,
+    genero: document.getElementById("genero").value,
+    anio: document.getElementById("anio").value,
+    descripcion: document.getElementById("descripcion").value,
+    imagen: document.getElementById("imagen").value
+  };
 
   try {
-    let res;
-    if (editando) {
-      // Actualizar juego
-      res = await fetch(`/juegos/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(juegoData)
-      });
-      mensaje.textContent = "Juego actualizado correctamente";
-    } else {
-      // Crear juego
-      res = await fetch("/juegos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(juegoData)
-      });
-      mensaje.textContent = "Juego creado correctamente";
+    let url = "/juegos";
+    let method = "POST";
+
+    // Si hay ID → modo edición
+    if (id) {
+      url = `/juegos/${id}`;
+      method = "PUT";
     }
 
+    // Petición al backend
+    await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(juegoData)
+    });
+
+    // Mensaje según acción
+    mensaje.textContent = id
+      ? "Juego actualizado correctamente"
+      : "Juego creado correctamente";
+
+    // Reset formulario
     formJuego.reset();
-    editando = false;
+    document.getElementById("juegoId").value = "";
+
+    // Volver a modo "crear"
+    document.getElementById("titulo-form").textContent = "➕ Crear nuevo juego";
+    document.getElementById("btnCrear").textContent = "Crear Juego";
+
     btnCancelar.style.display = "none";
+
+    // Recargar lista
     cargarJuegosAdmin();
 
   } catch (error) {
-    console.error(error);
+    console.error("Error guardando juego:", error);
     mensaje.textContent = "Error al guardar juego";
   }
 });
 
-// --------------------------
-// Editar juego
-// --------------------------
+
+// ==========================
+// EDITAR JUEGO
+// ==========================
 async function editarJuego(id) {
   try {
     const res = await fetch("/juegos");
     const juegos = await res.json();
+
     const juego = juegos.find(j => j.id === id);
 
+    // Rellenar formulario
     document.getElementById("juegoId").value = juego.id;
     document.getElementById("nombre").value = juego.nombre;
     document.getElementById("genero").value = juego.genero;
@@ -100,58 +130,125 @@ async function editarJuego(id) {
     document.getElementById("descripcion").value = juego.descripcion;
     document.getElementById("imagen").value = juego.imagen;
 
-    editando = true;
+    // Cambiar UI a modo edición
+    document.getElementById("titulo-form").textContent = "✏️ Editar juego";
+    document.getElementById("btnCrear").textContent = "Actualizar Juego";
+
     btnCancelar.style.display = "inline-block";
+
     mensaje.textContent = "Editando juego...";
+
+    //  Scroll automático al formulario
+    document.getElementById("formJuego").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
   } catch (error) {
-    console.error(error);
+    console.error("Error editando juego:", error);
+    mensaje.textContent = "Error al editar juego";
   }
 }
 
-// --------------------------
-// Cancelar edición
-// --------------------------
+
+// ==========================
+// CANCELAR EDICIÓN
+// ==========================
 btnCancelar.addEventListener("click", () => {
   formJuego.reset();
-  editando = false;
+  document.getElementById("juegoId").value = "";
+
+  // Volver a modo creación
+  document.getElementById("titulo-form").textContent = "➕ Crear nuevo juego";
+  document.getElementById("btnCrear").textContent = "Crear Juego";
+
   btnCancelar.style.display = "none";
   mensaje.textContent = "";
+   //  RECARGAR LISTA DE JUEGOS
+  cargarJuegosAdmin();
 });
 
-// --------------------------
-// Eliminar juego
-// --------------------------
+
+// ==========================
+// ELIMINAR JUEGO
+// ==========================
 async function eliminarJuego(id) {
   if (!confirm("¿Seguro que quieres eliminar este juego?")) return;
 
   try {
-    await fetch(`/juegos/${id}`, { method: "DELETE" });
-    mensaje.textContent = "Juego eliminado";
+    await fetch(`/juegos/${id}`, {
+      method: "DELETE"
+    });
+
+    mensaje.textContent = "Juego eliminado correctamente";
+
     cargarJuegosAdmin();
+
   } catch (error) {
-    console.error(error);
+    console.error("Error eliminando juego:", error);
     mensaje.textContent = "Error al eliminar juego";
   }
 }
 
 // --------------------------
-// Buscador admin
+// Buscador admin 
 // --------------------------
-buscadorAdmin.addEventListener("input", () => {
-  const texto = buscadorAdmin.value.toLowerCase();
+
+const btnBuscar = document.getElementById("btnBuscar");
+
+function ejecutarBusqueda() {
+
+  const texto = buscadorAdmin.value.toLowerCase().trim();
   const cards = document.querySelectorAll(".card-juego");
+
+  let primerResultado = null;
+  let resultados = 0;
+
   cards.forEach(card => {
-    const nombre = card.querySelector("h3").textContent.toLowerCase();
-    const descripcion = card.querySelector("p").textContent.toLowerCase();
-    if (nombre.includes(texto) || descripcion.includes(texto)) {
+
+    const contenido = card.textContent.toLowerCase();
+
+    if (contenido.includes(texto)) {
       card.style.display = "block";
+      resultados++;
+
+      if (!primerResultado) {
+        primerResultado = card;
+      }
+
     } else {
       card.style.display = "none";
     }
   });
+
+  //  scroll al primer resultado
+  if (texto && primerResultado) {
+    primerResultado.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+  // mensaje si no hay resultados
+  if (texto && resultados === 0) {
+    mensaje.textContent = "No se encontraron juegos";
+  } else {
+    mensaje.textContent = "";
+  }
+}
+
+
+//  ENTER activa búsqueda
+buscadorAdmin.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    ejecutarBusqueda();
+  }
 });
 
-// --------------------------
-// Iniciar panel
-// --------------------------
+//  BOTÓN LUPA activa búsqueda
+btnBuscar.addEventListener("click", ejecutarBusqueda);
+
+// ==========================
+// INICIALIZAR PANEL
+// ==========================
 document.addEventListener("DOMContentLoaded", cargarJuegosAdmin);
