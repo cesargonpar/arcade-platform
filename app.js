@@ -3,6 +3,7 @@
 // Servidor Node.js con Express y MySQL
 // --------------------------
 
+require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ const bcrypt = require('bcryptjs');
 const connection = require('./db');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // --------------------------
 // Middleware
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(session({
-    secret: 'arcade_secreto',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
