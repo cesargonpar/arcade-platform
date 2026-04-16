@@ -1,6 +1,6 @@
 // --------------------------
 // register.js
-// Maneja registro de usuarios con email
+// Maneja registro de usuarios
 // --------------------------
 
 // Obtener formulario y mensaje de error

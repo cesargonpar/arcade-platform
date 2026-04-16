@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre, email: nombre + "@example.com", password })
-      // Usamos un email temporal para login, porque tu backend pide nombre + email
+      // Usamos un email temporal para login, porque backend pide nombre + email
     });
 
     // Recibir respuesta JSON
