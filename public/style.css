@@ -194,6 +194,48 @@ main {
   text-align: center;
 }
 
+/* ================= JUEGO DETALLE ================= */
+
+/* CONTENEDOR EN DOS COLUMNAS */
+.juego-container {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+}
+
+/* COLUMNA IZQUIERDA (datos del juego y puntaciones) */
+.juego-info {
+  flex: 2;
+}
+
+/* COLUMNA DERECHA (carátula) */
+.juego-imagen-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* IMAGEN DEL JUEGO */
+#imagen-juego {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+}
+
+/* RESPONSIVE (móvil) */
+@media (max-width: 768px) {
+  .juego-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .juego-imagen-container {
+    margin-top: 20px;
+  }
+}
+
 /* ================= FOOTER ================= */
 
 .footer {

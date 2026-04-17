@@ -13,33 +13,49 @@
   <!-- Botón volver al inicio -->
   <a href="index.html" class="btn-volver">🏠 Inicio</a>
 </header>
-
 <main>
-  <!-- Nombre del juego -->
-  <h2 id="nombre-juego"></h2>
 
-  <!-- Descripción del juego -->
-  <p id="descripcion-juego" class="descripcion-juego"></p>
+  <!-- CONTENEDOR FLEX -->
+  <div class="juego-container">
 
-  <!-- Ranking de puntuaciones -->
-  <h3>🏆 Top 10 Puntuaciones</h3>
-  <ul id="ranking"></ul>
+    <!-- IZQUIERDA -->
+    <div class="juego-info">
 
-  <!-- Formulario para añadir puntuación -->
-  <h3>➕ Añadir puntuación</h3>
-  <form id="form-puntuacion">
-    <label>Puntos</label>
-    <input type="number" id="puntos" required>
-    <br><br>
-    <button type="submit">Guardar puntuación</button>
-  </form>
+      <!-- Nombre del juego -->
+      <h2 id="nombre-juego"></h2>
 
-  <!-- Mensaje si no hay sesión -->
-  <div id="mensaje-login" style="color:red;">
-  Debes <a href="login.html">iniciar sesión</a> para añadir puntuaciones
-</div>
+      <!-- Descripción del juego -->
+      <p id="descripcion-juego" class="descripcion-juego"></p>
+
+      <!-- Ranking de puntuaciones -->
+      <h3>🏆 Top 10 Puntuaciones</h3>
+      <ul id="ranking"></ul>
+
+      <!-- Formulario para añadir puntuación -->
+      <h3>➕ Añadir puntuación</h3>
+      <form id="form-puntuacion">
+        <label>Puntos</label>
+        <input type="number" id="puntos" required>
+        <br><br>
+        <button type="submit">Guardar puntuación</button>
+      </form>
+
+      <!-- Mensaje si no hay sesión -->
+      <div id="mensaje-login" style="color:red;">
+        Debes <a href="login.html">iniciar sesión</a> para añadir puntuaciones
+      </div>
+
+    </div>
+
+    <!-- DERECHA -->
+    <div class="juego-imagen-container">
+      <img id="imagen-juego" src="" alt="Carátula del juego">
+    </div>
+
+  </div>
+
 </main>
-
+  
 <script src="juego.js"></script>
 
 <!-- ================= FOOTER ================= -->

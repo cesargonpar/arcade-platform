@@ -12,6 +12,7 @@ const formPuntuacion = document.getElementById("form-puntuacion");
 const puntosInput = document.getElementById("puntos");
 const mensajeLogin = document.getElementById("mensaje-login");
 const usuarioInfo = document.getElementById("usuario-info");
+const imagenJuegoEl = document.getElementById("imagen-juego");
 
 // --------------------------
 // OBTENER ID DEL JUEGO DESDE LA URL
@@ -85,6 +86,10 @@ async function cargarJuego() {
     nombreJuegoEl.textContent = juego.nombre;
     const descripcionEl = document.getElementById("descripcion-juego");
     descripcionEl.textContent = juego.descripcion;
+    // NUEVO: mostrar carátula del juego
+    if (imagenJuegoEl) {
+       imagenJuegoEl.src = juego.imagen;
+    }
 
     // Cargar Top 10
     const resTop = await fetch(`/puntuaciones/top/${juegoId}`);
