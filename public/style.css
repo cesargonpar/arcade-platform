@@ -15,16 +15,16 @@ h1, h2 {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-betwen;
+  justify-content: space-between;
   background-color: #1b1b1b;
-  gap: 15px;        /* separación entre logo, buscador y botones */
+  gap: 15px;        
   padding: 15px 30px;
-  height: 50px;
+  height: 95px;
 }
 
 .logo {
   height:auto;
-  width: 300px;
+  width: 450px;
   filter:drop-shadow(0 0 10px #00ffff);
   animation: brillo 2s infinite alternate;
 }
