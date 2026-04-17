@@ -111,23 +111,30 @@ async function cargarJuegos() {
     const res = await fetch("/juegos");
     const juegos = await res.json();
 
-    listaJuegos.innerHTML = ""; // Limpiar contenedor
+    listaJuegos.innerHTML = "";
 
     juegos.forEach(juego => {
+
+      // NUEVO: crear enlace que envuelve toda la card
+      const link = document.createElement("a");
+      link.href = `juego.html?id=${juego.id}`;
+      link.style.textDecoration = "none";
+      link.style.color = "inherit";
+
       const card = document.createElement("div");
       card.className = "card-juego";
 
       card.innerHTML = `
         <img src="${juego.imagen}" alt="${juego.nombre}" class="juego-imagen">
         <h3>${juego.nombre}</h3>
-         <p>${juego.anio || ""}</p>
+        <p>${juego.anio || ""}</p>
         <p>${juego.genero || ""}</p>
-        <a href="juego.html?id=${juego.id}">
-          <button>Top</button>
-        </a>
       `;
 
-      listaJuegos.appendChild(card);
+      // meter card dentro del link
+      link.appendChild(card);
+
+      listaJuegos.appendChild(link);
     });
 
   } catch (error) {

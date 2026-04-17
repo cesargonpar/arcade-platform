@@ -97,6 +97,8 @@ main {
   text-align: center;
   max-width: 180px;
   transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  
 }
 
 .card-juego:hover {
@@ -132,6 +134,7 @@ main {
 .card-juego button:hover {
   background-color: #45a049;
 }
+
 /* ================= PANEL ADMIN CREAR JUEGOS ================= */
 .admin-form-container {
   max-width: 500px;
