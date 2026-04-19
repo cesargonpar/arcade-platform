@@ -6,35 +6,48 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- ================= HEADER ================= -->
 <header class="header">
    <img src = "imagenes\logo-arcadeL.png" class = "logo">
   <a href="index.html" class="volver-btn">🏠 Volver a juegos</a>
 </header>
+<!-- ================= MAIN ================= -->
+<main class="login-main"> <!-- Contenedor principal centrado -->
 
-<main>
-  <div class="login-container">
-    <h2>Iniciar sesión</h2>
+  <div class="login-container"> <!-- Caja del login -->
+
+    <h2>🎮 Iniciar sesión</h2>
+
     <form id="form-login">
-      <!-- Nombre de usuario -->
-      <input type="text" id="nombre" placeholder="Nombre de usuario" required><br><br>
 
-      <!-- Contraseña -->
-      <input type="password" id="password" placeholder="Contraseña" required><br><br>
+      <!-- INPUT USUARIO -->
+      <div class="input-group">
+        <input type="text" id="nombre" required>
+        <label>Nombre de usuario</label> <!-- Label animado -->
+      </div>
 
-      <button type="submit">Entrar</button>
+      <!-- INPUT CONTRASEÑA -->
+      <div class="input-group">
+        <input type="password" id="password" required>
+        <label>Contraseña</label> <!-- Label animado -->
+      </div>
+
+      <!-- BOTÓN LOGIN -->
+      <button type="submit" class="btn-login">Entrar</button>
+
     </form>
 
-    <!-- Botón para registrar nuevos usuarios -->
-    <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+    <!-- LINK A REGISTRO -->
+    <p class="registro-link">
+      ¿No tienes cuenta? <a href="register.html">Regístrate aquí</a>
+    </p>
 
-    <!-- Mensaje de error -->
-    <div id="mensaje-error" style="color:red; margin-top:10px;"></div>
+    <!-- MENSAJE DE ERROR -->
+    <div id="mensaje-error" class="error-msg"></div>
+
   </div>
-</main>
 
-<script src="login.js"></script>
-</body>
+</main>
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
 
@@ -54,4 +67,10 @@
     <p class="footer-copy">
       © 2026 Arcade -Plataforma web de gestion y ranking de juegos Arcade
     </p>
+
+  </div>
+</footer>
+
+<script src="login.js"></script>
+</body>
 </html>

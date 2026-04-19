@@ -20,6 +20,8 @@ h1, h2 {
   gap: 15px;        
   padding: 15px 30px;
   height: 95px;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
@@ -27,6 +29,7 @@ h1, h2 {
   width: 450px;
   filter:drop-shadow(0 0 10px #00ffff);
   animation: brillo 2s infinite alternate;
+  pointer-events: none;
 }
 @keyframes brillo {
   from {
@@ -79,6 +82,8 @@ h1, h2 {
 /* ================= MAIN ================= */
 main {
   padding: 20px 30px;
+  position: relative;
+  z-index: 2;
 }
 
 /* ================= JUEGOS GRID ================= */
@@ -267,4 +272,102 @@ main {
 .footer-copy {
   font-size: 13px;
   color: #666;
+}
+/* ================= LOGIN ================= */
+
+/* CONTENEDOR PRINCIPAL (centra el login en pantalla) */
+.login-main {
+  height: 80vh;
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+}
+
+/* CAJA DEL LOGIN */
+.login-container {
+  background: rgba(30, 30, 30, 0.9); /* fondo oscuro con transparencia */
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.2); /* glow tipo arcade */
+  text-align: center;
+  backdrop-filter: blur(10px); /* efecto cristal */
+}
+
+/* TÍTULO */
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #00ffff;
+}
+
+/* CONTENEDOR DE INPUT */
+.input-group {
+  position: relative; /* necesario para el label animado */
+  margin-bottom: 25px;
+}
+
+/* INPUT */
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  background: #2b2b2b;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  outline: none;
+}
+
+/* LABEL (texto dentro del input) */
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #aaa;
+  font-size: 14px;
+  transition: 0.3s;
+  pointer-events: none; /* evita que bloquee clicks */
+}
+
+/* EFECTO AL HACER FOCUS O ESCRIBIR */
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -10px;        /* sube el label */
+  font-size: 12px;   /* se hace pequeño */
+  color: #00ffff;    /* color neon */
+}
+
+/* BOTÓN LOGIN */
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  background: #00c3ff;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER BOTÓN */
+.btn-login:hover {
+  background: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* TEXTO REGISTRO */
+.registro-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* LINK REGISTRO */
+.registro-link a {
+  color: #00c3ff;
+}
+
+/* MENSAJE ERROR */
+.error-msg {
+  margin-top: 10px;
+  color: red;
 }
