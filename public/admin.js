@@ -65,7 +65,7 @@ formJuego.addEventListener("submit", async (e) => {
     genero: document.getElementById("genero").value,
     anio: document.getElementById("anio").value,
     descripcion: document.getElementById("descripcion").value,
-    imagen: document.getElementById("imagen").value
+    imagen: document.getElementById("imagen").value,
   };
 
   try {

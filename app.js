@@ -231,15 +231,15 @@ app.get('/juegos', (req, res) => {
 app.put('/juegos/:id', requireAdmin, (req, res) => {
 
   const { id } = req.params;
-  const { nombre, genero, anio, descripcion } = req.body;
+  const { nombre, genero, anio, descripcion, imagen } = req.body;
 
   const sql = `
     UPDATE juegos 
-    SET nombre = ?, genero = ?, anio = ?, descripcion = ?
+    SET nombre = ?, genero = ?, anio = ?, descripcion = ? , imagen = ?
     WHERE id = ?
   `;
 
-  connection.query(sql, [nombre, genero, anio, descripcion, id], (err, result) => {
+  connection.query(sql, [nombre, genero, anio, descripcion, imagen, id], (err, result) => {
 
     if (err) return res.status(500).send('Error al actualizar juego');
 
