@@ -9,6 +9,16 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME || 'arcade_db',
   port: process.env.DB_PORT || 3306
 });
+// 🔥 CLAVE para Railway
+  ssl: {
+    rejectUnauthorized: false
+  },
+
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
 
 // Conectar
 connection.connect(err => {
