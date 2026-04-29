@@ -9,9 +9,9 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME || 'arcade_db',
   port: process.env.DB_PORT || 3306,
 // 🔥 CLAVE para Railway
-  ssl: {
-    rejectUnauthorized: false
-  }
+   ...(process.env.NODE_ENV === 'production' && {
+    ssl: { rejectUnauthorized: false }
+  })
 
 });
 
