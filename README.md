@@ -31,7 +31,6 @@ Proyecto web desarrollado con **Node.js, Express y MySQL** que permite gestionar
 ---
 
 ## 📁 Estructura del proyecto
-# 🎮 Arcade - Plataforma Web de Gestión y Ranking de Juegos
 
 Proyecto web desarrollado con **Node.js, Express y MySQL** que permite gestionar juegos arcade y registrar puntuaciones de los usuarios.
 
@@ -64,7 +63,7 @@ Proyecto web desarrollado con **Node.js, Express y MySQL** que permite gestionar
 ---
 
 ## 📁 Estructura del proyecto
-aRCADE
+arcade-platform
 │
 ├── app.js
 ├── db.js
@@ -97,7 +96,7 @@ git clone https://github.com/cesargonpar/arcade-platform.git
 npm install
 
 3. crear base de datos en MySQL
-arcade.db
+arcade_db
 
 4. Ejecutar el servidor
 node app.js
@@ -181,7 +180,12 @@ Guarda las puntuaciones obtenidas por los usuarios en cada juego.
 
 ---
 
+## 🌐 Despliegue
 
+La aplicación está desplegada en Render:
+https://arcade-platform-1.onrender.com
+
+La base de datos se encuentra alojada en Railway
 
 ## 📄 Autor
 César González Parada
