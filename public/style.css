@@ -103,6 +103,9 @@ main {
   max-width: 180px;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
 }
 
@@ -114,15 +117,19 @@ main {
 .card-juego img {
   width: 100%;
   border-radius: 6px;
+  height: 200px;
+  object-fit: contain;
+  
 }
 
 .card-juego h3 {
-  margin: 10px 0 5px 0;
+  margin: 10px 0 5px 0; 
+
 }
 
 .card-juego p {
   font-size: 14px;
-  color: #ccc;
+  color: #ccc; 
 }
 
 .card-juego button {
