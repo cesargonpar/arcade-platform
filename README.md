@@ -179,6 +179,31 @@ Guarda las puntuaciones obtenidas por los usuarios en cada juego.
 | fecha | DATETIME | Fecha en la que se registró la puntuación |
 
 ---
+## Añadir juegos a la base de datos
+
+INSERT INTO juegos (nombre, genero, anio, descripcion, imagen) VALUES
+
+('Cadillacs and Dinosaurs', 'Beat em up', 1992, 'Juego de acción donde luchas contra enemigos en un mundo con dinosaurios', 'imagenes/cadillacs.jpg'),
+
+('Donkey Kong', 'Plataformas', 1981, 'Clásico juego donde Mario rescata a la princesa esquivando obstáculos', 'imagenes/donkeykong.jpg'),
+
+('Galaga', 'Shooter', 1981, 'Juego de disparos espaciales contra oleadas de enemigos', 'imagenes/galaga.jpg'),
+
+('Pac-Man', 'Arcade', 1980, 'Come puntos y evita fantasmas en este clásico arcade', 'imagenes/pacman.jpg'),
+
+('Puzzle Bobble', 'Puzzle', 1994, 'Dispara burbujas para agrupar colores y eliminarlas', 'imagenes/puzzlebobble.jpg'),
+
+('Sonic the Hedgehog', 'Plataformas', 1991, 'Juego rápido de plataformas protagonizado por Sonic', 'imagenes/Sonic.jpg'),
+
+('Space Invaders', 'Shooter', 1978, 'Defiende la Tierra de invasores alienígenas', 'imagenes/spaceinvaders.jpg'),
+
+('Street Fighter', 'Lucha', 1987, 'Juego de lucha clásico uno contra uno', 'imagenes/Street-Fighter.png'),
+
+('Super Mario Bros', 'Plataformas', 1985, 'Acompaña a Mario en su aventura para rescatar a la princesa', 'imagenes/SuperMario.jpg'),
+
+('Tetris', 'Puzzle', 1984, 'Encaja piezas para completar líneas y sumar puntos', 'imagenes/tetris.jpg'),
+
+('The Legend of Zelda', 'Aventura', 1986, 'Explora el mundo y completa misiones en esta aventura clásica', 'imagenes/zelda.jpg');
 
 ## 🌐 Despliegue
 
