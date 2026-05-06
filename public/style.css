@@ -230,13 +230,13 @@ main {
   justify-content: center;
   align-items: flex-start;
 }
-
 /* IMAGEN DEL JUEGO */
 #imagen-juego {
   width: 100%;
   max-width: 300px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,255,255,0.3);
+  transition: filter 0.2s ease;
 }
 
 /* RESPONSIVE (móvil) */
@@ -249,6 +249,61 @@ main {
   .juego-imagen-container {
     margin-top: 20px;
   }
+}
+/* boton salir jugar.html*/
+.btn-salir {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: rgba(220, 53, 69, 0.9); /* rojo con transparencia */
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* Hover */
+.btn-salir:hover {
+  background: rgba(200, 35, 51, 1);
+  transform: translateY(-2px);
+}
+
+/* Click */
+.btn-salir:active {
+  transform: scale(0.95);
+}
+/*boton pantalla completa */
+.btn-fullscreen {
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  z-index: 9999;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-fullscreen:hover {
+  background: #0056b3;
 }
 
 /* ================= FOOTER ================= */
@@ -377,4 +432,62 @@ main {
 .error-msg {
   margin-top: 10px;
   color: red;
+}
+
+/* -------- BOTÓN INSERT COIN -------- */
+
+.imagen-wrapper {
+ position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.imagen-wrapper:hover #imagen-juego {
+  filter: brightness(0.4);
+}
+
+.btn-overlay {
+  position: absolute;
+  top: 45%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  will-change: opacity;
+
+  padding: 12px 18px;
+  font-weight: bold;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffff00;
+
+  border: 2px solid #ffff00;
+  border-radius: 8px;
+
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.2s;
+
+  box-shadow:
+    0 0 10px #ffff00,
+    0 0 20px #ffae00,
+    0 0 40px #ff8c00;
+
+  animation: arcadeBlink 1s infinite;
+}
+
+/* Hover */
+.btn-overlay:hover:not(:disabled) {
+  background: #ffff00;
+  color: black;
+  cursor: url('/imagenes/coin.png') 16 16, pointer;
+
+}
+@keyframes arcadeBlink {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 8px #ffff00, 0 0 20px #ffff00;
+  }
+
+  50% {
+    opacity: 0.4;
+    text-shadow: 0 0 2px #ffff00;
+  }
 }

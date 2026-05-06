@@ -1,0 +1,54 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="salirJuego()" class="btn-salir">❌ Salir</button>
+        <button onclick="pantallaCompleta()" class="btn-fullscreen">⛶ Pantalla completa</button>
+        <div style="width:100%;height:100%;max-width:100%">
+            <div id="game"></div>
+        </div>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const rom = params.get("rom");
+            const core = params.get("core");
+            const bios = params.get("bios");
+// Función salir del juego            
+    function salirJuego() {
+      if (document.referrer) {
+        window.history.back();
+      } else {
+        window.location.href = "index.html";
+      }
+    }
+// Función para activar o salir de pantalla completa
+    function pantallaCompleta() {
+  const game = document.getElementById("game");
+
+  if (game.requestFullscreen) {
+    game.requestFullscreen();
+  } else if (game.webkitRequestFullscreen) {
+    game.webkitRequestFullscreen();
+  } else if (game.msRequestFullscreen) {
+    game.msRequestFullscreen();
+  }
+}
+
+            EJS_player = "#game";
+            EJS_core = core;
+            EJS_color = "#0064ff";
+            EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+            EJS_gameUrl = rom;
+            if (bios) {
+            EJS_biosUrl = bios;
+            }
+        </script>
+        <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+    </body>
+</html>

@@ -77,6 +77,7 @@ async function cargarJuego() {
     const resJuego = await fetch('/juegos');
     const juegos = await resJuego.json();
     const juego = juegos.find(j => j.id == juegoId);
+    
 
     if (!juego) {
       nombreJuegoEl.textContent = "Juego no encontrado";
@@ -90,6 +91,47 @@ async function cargarJuego() {
     if (imagenJuegoEl) {
        imagenJuegoEl.src = juego.imagen;
     }
+ // ---------------------------------------------------
+// BOTON JUGAR
+// ---------------------------------------------------
+const btnJugar = document.getElementById("btn-jugar");
+
+if (btnJugar) {
+  if (juego.rom) {
+    btnJugar.disabled = false;
+
+    btnJugar.onclick = () => {
+     let url = `jugar.html?rom=${juego.rom}&core=${juego.core}`;
+
+// si juego tiene bios NEOGEO
+
+     if (juego.bios) {
+       url += `&bios=${juego.bios}`;
+      }
+      window.location.href = url;
+    };
+
+  } else {
+    btnJugar.style.display = "none";
+  }
+}
+// ---------------------------------------------------
+// EFECTO BOTÓN (INSERT COIN → PLAY)
+// ---------------------------------------------------
+
+if (btnJugar && juego.rom) {
+
+  const textoOriginal = "INSERT COIN";
+
+  btnJugar.addEventListener("mouseenter", () => {
+    btnJugar.textContent = "PLAY";
+  });
+
+  btnJugar.addEventListener("mouseleave", () => {
+    btnJugar.textContent = textoOriginal;
+  });
+
+}
 
     // Cargar Top 10
     const resTop = await fetch(`/puntuaciones/top/${juegoId}`);
