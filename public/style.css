@@ -491,3 +491,28 @@ main {
     text-shadow: 0 0 2px #ffff00;
   }
 }
+/* ================= JUGAR.HTML ================= */
+
+body.jugar-page {
+  background: radial-gradient(circle, #222 0%, #000 100%);
+}
+.titulo-arcade {
+  text-align: center;
+  color: #ffff00;
+  font-family: 'Press Start 2P', cursive;
+
+  margin: 5px 0;
+  font-size: 30px;
+
+  text-shadow:
+    0 0 5px #ffff00,
+    0 0 10px #ffae00;
+}
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: calc(100vh - 80px);
+}

@@ -1,6 +1,7 @@
 <html>
     <head>
       <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <style>
             body, html {
                 margin: 0;
@@ -8,10 +9,11 @@
             }
         </style>
     </head>
-    <body>
+    <body class="jugar-page">
         <button onclick="salirJuego()" class="btn-salir">❌ Salir</button>
         <button onclick="pantallaCompleta()" class="btn-fullscreen">⛶ Pantalla completa</button>
-        <div style="width:100%;height:100%;max-width:100%">
+        <h1 class="titulo-arcade">ARCADE MODE</h1>
+        <div class="game-container">
             <div id="game"></div>
         </div>
         <script>
@@ -29,17 +31,15 @@
     }
 // Función para activar o salir de pantalla completa
     function pantallaCompleta() {
-  const game = document.getElementById("game");
-
-  if (game.requestFullscreen) {
-    game.requestFullscreen();
-  } else if (game.webkitRequestFullscreen) {
-    game.webkitRequestFullscreen();
-  } else if (game.msRequestFullscreen) {
-    game.msRequestFullscreen();
-  }
-}
-
+      const game = document.getElementById("game");
+     if (game.requestFullscreen) {
+       game.requestFullscreen();
+     } else if (game.webkitRequestFullscreen) {
+       game.webkitRequestFullscreen();
+     } else if (game.msRequestFullscreen) {
+       game.msRequestFullscreen();
+     }
+   }
             EJS_player = "#game";
             EJS_core = core;
             EJS_color = "#0064ff";
