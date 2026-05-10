@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'arcade_db',
   port: process.env.DB_PORT || 3306,
-// 🔥 CLAVE para Railway
+//  CLAVE para tiDB
    ...(process.env.NODE_ENV === 'production' && {
    ssl: {
       minVersion: "TLSv1.2",
