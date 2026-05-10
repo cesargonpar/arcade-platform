@@ -10,8 +10,11 @@ const connection = mysql.createConnection({
   port: process.env.DB_PORT || 3306,
 // 🔥 CLAVE para Railway
    ...(process.env.NODE_ENV === 'production' && {
-    ssl: { rejectUnauthorized: false }
-  })
+   ssl: {
+      minVersion: "TLSv1.2",
+      rejectUnauthorized: false
+    }
+    })
 
 });
 
