@@ -115,7 +115,7 @@ async function cargarJuegos() {
 
     juegos.forEach(juego => {
 
-      // NUEVO: crear enlace que envuelve toda la card
+      // crear enlace que envuelve toda la card
       const link = document.createElement("a");
       link.href = `juego.html?id=${juego.id}`;
       link.style.textDecoration = "none";
