@@ -21,7 +21,7 @@ async function checkSesion() {
       mostrarUsuario(data.usuario);
 
       // Mostrar botón admin si es admin
-      mostrarBotonAdmin(data.rol); // <-- añadimos esto
+      mostrarBotonAdmin(data.rol);
     }
   } catch (error) {
     console.error("Error comprobando sesión:", error);
